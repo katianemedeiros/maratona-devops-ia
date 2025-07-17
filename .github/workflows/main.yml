@@ -6,15 +6,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  CI:
-    runs-on: ubuntu-latest
-    steps:
-        -run : echo "Obter o código 1"
+    CI:
+        runs-on: ubuntu-latest
+        steps:
+            -run : echo "Obter o código 1"
+            -run : echo "Obter o código 1"
 
-  CD:
-      needs: [CI]
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "Obter o código"
-        - run: echo "Configurar o kubeconfig"
-        - run: echo "Configurar o kubeconfig"
+    CD:
+        needs: [CI]
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Obter o código"
+            - run: echo "Configurar o kubeconfig"
+            - run: echo "Configurar o kubeconfig"
