@@ -5,16 +5,16 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-  jobs:
-    CI:
-        runs-on: ubuntu-latest
-        step:
-            -run : echo "Obter o código 1"
-            -run : echo "Enviar a imagem docker para o docker hub"
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+        -run : echo "Obter o código 1"
 
-    CD:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "Obter o código"
-            - run: echo "Configurar o kubeconfig"
-            - run: echo "Configurar o kubeconfig"
+  CD:
+      needs: [CI]
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Obter o código"
+        - run: echo "Configurar o kubeconfig"
+        - run: echo "Configurar o kubeconfig"
